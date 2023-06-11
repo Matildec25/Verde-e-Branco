@@ -1,0 +1,145 @@
+h1 {
+    font-size: 27px;
+    font-weight: bold;
+    color: #515151;
+    font-family: Poppins, sans-serif;
+  
+  }
+  
+  h2 {
+    font-size: 13px;
+    color: #1c7860;
+    font-family: Poppins, sans-serif;
+  
+  }
+  
+  h3 {
+    font-size: 13px;
+    color: #7c7c7c;
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+  }
+  
+  span {
+    font-size: 15px;
+    color: #1c7860;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+  
+  }
+  
+  p {
+    font-size: 15px;
+    color: #727272;
+    font-family: Poppins, sans-serif;
+  
+  }
+  
+  ion-card {
+    box-shadow: inherit;
+  }
+  
+  
+  
+  ion-card-title {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    font-size: 17px;
+    color: #3c3c3c;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+  }
+  
+  
+  ion-card-content {
+    text-align: center;
+    font-size: 14px;
+    color: #727272;
+    font-family: Poppins, sans-serif;
+  
+  }
+  
+  .products-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-left: 15px;
+    padding-right: 15px;
+  
+  }
+  
+  .products-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .products-list {
+    display: flex;
+    flex-wrap: nowrap;
+  
+  }
+  
+  .product-item {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    width: 280px;
+  
+  
+  }
+  
+  .product-item img {
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    opacity: 95%;
+  
+  }
+  .buttons-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-top: 10px;
+  
+  
+  
+  }
+  
+  .buttons-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .buttons-list {
+    display: flex;
+    flex-wrap: nowrap;
+  
+  
+  }
+  
+  .active {
+    --background: #1c7860;
+  
+  }
+  
+  
+  
+  ion-button {
+    font-size: 16px;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    margin-right: 15px;
+    --background: #434343;
+  
+  }
+  
+  .add-to-cart-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    opacity: 30%;
+  
+  
+  }
+  

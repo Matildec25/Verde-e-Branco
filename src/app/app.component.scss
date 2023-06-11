@@ -1,0 +1,20 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+  ion-menu {
+    --ion-background-color: #1c7860;
+    --ion-font-family: "Poppins", sans-serif;
+  }
+
+  .menu-close-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+  }
+
+  .menu-close-icon {
+    font-size: 40px;
+    color: #1c7860;
+  }

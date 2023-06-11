@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab5" fill="clear" style="  --background: transparent;">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center ion-text-uppercase">
+      Mulher</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/carrinho" style="--background: #1c7860;">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+     
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="buttons-container ion-padding">
+    <div class="buttons-list">
+      <ion-button routerLink="/equipamentos-adulto" routerLinkActive="active" flex="1">Adulto</ion-button>
+      <ion-button routerLink="/equipamentos-crianca" routerLinkActive="active" flex="1">Criança</ion-button>
+      <ion-button routerLink="/equipamentos-mulher" routerLinkActive="active" flex="1">Mulher</ion-button>
+      <ion-button routerLink="/equipamentos-acessorios" routerLinkActive="active" flex="1">Acessórios</ion-button>
+
+    </div>
+  </div>
+
+
+  <h1 class="ion-text-uppercase ion-text-center" style="padding-top: 30px;">Jogo</h1>
+
+  <div class="products-container">
+    <div class="products-list">
+      <ng-container *ngFor="let produto of produtos">
+        <div class="product-item" *ngIf="produto.categoria == 7">
+          <ion-card>
+            <ion-card-header>
+              <img src="data:image/jpeg;base64,{{ produto.img1 }}" />
+              <ion-button class="add-to-cart-button" shape="round">
+                <ion-icon name="cart"></ion-icon>
+              </ion-button>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-card-title>{{ produto.nome }}</ion-card-title>
+              <p>{{ produto.preco }}€ <span style="margin-left: 3px;">{{ produto.preco_socio }}*€</span></p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <h1 class="ion-text-uppercase ion-text-center" style="padding-top: 30px;">Saída</h1>
+
+  <div class="products-container" style="padding-bottom: 70px;">
+    <div class="products-list">
+      <ng-container *ngFor="let produto of produtos">
+        <div class="product-item" *ngIf="produto.categoria == 8">
+          <ion-card>
+            <ion-card-header>
+              <img src="data:image/jpeg;base64,{{ produto.img1 }}" />
+              <ion-button class="add-to-cart-button" shape="round">
+                <ion-icon name="cart"></ion-icon>
+              </ion-button>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-card-title>{{ produto.nome }}</ion-card-title>
+              <p>{{ produto.preco }}€ <span style="margin-left: 3px;">{{ produto.preco_socio }}*€</span></p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+
+  <ion-grid style="background-color: #f3f1f177;">
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <h3>
+          <a href="https://lojaverde.sporting.pt/pt/lookbook" target="_blank" style="text-decoration: none;">
+            LookBook
+          </a>
+        </h3>
+        <h3>
+          Perguntas Frequentes
+        </h3>
+        <h3>
+          Entregas </h3>
+        <h3>
+          Trocas e Devoluções </h3>
+        <h3>
+          Contactos </h3>
+
+        <h2 class="ion-text-center" style="font-size: 25px;">
+          <a href="https://www.facebook.com/SportingClubePortugal/?locale=pt_PT" target="_blank">
+            <ion-icon name="logo-facebook" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://twitter.com/Sporting_CP" target="_blank">
+            <ion-icon name="logo-twitter" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.youtube.com/@sportingcp" target="_blank">
+            <ion-icon name="logo-youtube" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.tiktok.com/@sporting_cp" target="_blank">
+            <ion-icon name="logo-tiktok" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.instagram.com/sportingclubedeportugal/" target="_blank">
+            <ion-icon name="logo-instagram" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+        </h2>
+        <div style="margin-left: 10px; border-top: 1px solid #ccc;">
+          <h3 class="ion-text-center" style="color: #585858;">© 2023 Sporting Clube de Portugal - Todos os direitos
+            reservados</h3>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

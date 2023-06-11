@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab1" fill="clear" style="  --background: transparent;">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center ion-text-uppercase">
+      Futebol</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/carrinho" style="--background: #1c7860;">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+
+  <h1 class="ion-text-center ">Próximos jogos</h1>
+
+  <div class="proxjogos" style="display: flex; overflow-x: scroll; white-space: nowrap; margin-left: 20px; margin-right: 20px;">
+    <div *ngFor="let game of nextGamesEvents" style="display: inline-flex; margin-right: 10px;">
+      <ion-card>
+        <ion-card-content style="display: flex; justify-content: space-between; border-bottom: 1px solid #ccc;">
+          <span class="justify-content-start" [style.color]="game.homeTeam.name === 'Sporting' ? '#1c7860' : 'gray'">
+            {{ game.homeTeam.name }}
+          </span>
+          <span style="font-weight: 300; color: black;">-</span>
+          <span class="justify-content-end" [style.color]="game.awayTeam.name === 'Sporting' ? '#1c7860' : 'gray'">
+            {{ game.awayTeam.name }}
+          </span>
+        </ion-card-content>
+        <h3 style="margin:10px">{{ game.tournament.name }} - Jornada: {{ game.roundInfo.round }}</h3>
+        <h2 style="margin:10px">{{ formatDate(game.startTimestamp) }}</h2>
+
+      </ion-card>
+    </div>
+  </div>
+  
+  
+
+  <h1 class="ion-text-center">Jogos Recentes</h1>
+  <div *ngFor="let event of  teamFormEvents; let i = index"
+    style="display: flex; justify-content: center; align-items: center;">
+    <ion-card>
+      <a [href]="playlists[i % playlists.length].videos[i % playlists[i % playlists.length].videos.length].videoUrl"
+        target="_blank">
+        <img
+          [src]="playlists[i % playlists.length].videos[i % playlists[i % playlists.length].videos.length].thumbnailUrl"
+          alt="{{ playlists[i % playlists.length].videos[i % playlists[i % playlists.length].videos.length].title }} ">
+      </a>
+      <ion-card-content style="display: flex; justify-content: space-between; border-bottom: 1px solid #ccc;">
+        <span class="justify-content-start"
+          [ngStyle]="{'color': event.homeScore.current > event.awayScore.current ? ' #1c7860' : event.homeScore.current == event.awayScore.current ? 'gray' : 'gray'}">
+          {{ event.homeTeam.name }}
+        </span>
+        <span style="font-weight: 300; color: black;">{{ event.homeScore.current }} - {{ event.awayScore.current
+          }}</span>
+        <span class="justify-content-end"
+          [ngStyle]="{'color': event.homeScore.current < event.awayScore.current ? ' #1c7860' : event.homeScore.current == event.awayScore.current ? 'gray' : 'gray'}">
+          {{ event.awayTeam.name }}
+        </span>
+      </ion-card-content>
+      <h3 style="margin:10px">{{ event.tournament.name }} - Jornada: {{ event.roundInfo.round }}</h3>
+    </ion-card>
+  </div>
+
+
+
+
+
+
+
+  <ion-grid style="background-color: #f3f1f177;">
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <h3>
+          <a href="https://lojaverde.sporting.pt/pt/lookbook" target="_blank" style="text-decoration: none;">
+            LookBook
+          </a>
+        </h3>
+        <h3>
+          Perguntas Frequentes
+        </h3>
+        <h3>
+          Entregas </h3>
+        <h3>
+          Trocas e Devoluções </h3>
+        <h3>
+          Contactos </h3>
+
+        <h2 class="ion-text-center" style="font-size: 25px;">
+          <a href="https://www.facebook.com/SportingClubePortugal/?locale=pt_PT" target="_blank">
+            <ion-icon name="logo-facebook" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://twitter.com/Sporting_CP" target="_blank">
+            <ion-icon name="logo-twitter" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.youtube.com/@sportingcp" target="_blank">
+            <ion-icon name="logo-youtube" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.tiktok.com/@sporting_cp" target="_blank">
+            <ion-icon name="logo-tiktok" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.instagram.com/sportingclubedeportugal/" target="_blank">
+            <ion-icon name="logo-instagram" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+        </h2>
+        <div style="margin-left: 10px; border-top: 1px solid #ccc;">
+          <h3 class="ion-text-center" style="color: #585858;">© 2023 Sporting Clube de Portugal - Todos os direitos
+            reservados</h3>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

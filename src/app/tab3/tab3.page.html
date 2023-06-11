@@ -1,0 +1,150 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button menuToggle="menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center ion-text-uppercase">
+      Verde e Branco</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/carrinho" style="  --background: #1c7860;">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+     
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <div class="buttons-container ion-padding">
+    <div class="buttons-list">
+      <ion-button routerLink="/tabs/tab2" flex="1">Bilhetes</ion-button>
+      <ion-button routerLink="/tabs/tab5" flex="1">Compras</ion-button>
+      <ion-button routerLink="/tabs/tab4" flex="1">Perfil</ion-button>
+    </div>
+  </div>
+
+
+
+
+
+  <div style="display: flex; justify-content: center; align-items: center;" class="ion-text-center ion-padding">
+    <div style="max-width: 400px;">
+      <ion-card>
+        <img style="max-width: 400px; max-height: 400xpx;" alt="Novidades" src="assets/imgs/loja.png"
+          routerLink="/tabs/tab5" />
+        <ion-card-header>
+          <ion-card-title>LionStore</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Agora mais fácil que nunca, compra a partir do teu disposito móvel na loja verde. Não percas todas as
+          novidades!
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+
+
+
+  <div class="ion-text-center" *ngFor="let playlist of playlists">
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="ion-padding" style="max-width: 400px;">
+        <ion-card *ngFor="let video of playlist.videos">
+          <a [href]="video.videoUrl" target="_blank">
+            <img [src]="video.thumbnailUrl" alt="{{ video.title }}">
+          </a>
+          <ion-card-header>
+            <ion-card-title>{{ playlist.name }}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{ playlist.descricao }}
+            <h2 class="ion-text-end" style="margin-top: 15px;">Publicado em: {{ video.date}}</h2>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="ion-text-center" style="font-size: 23px; color: #5a5a5a;">Notícias Recentes</h1>
+  
+
+  <div class="products-container" style="padding-bottom: 40px;">
+  <div class="products-list" style="display: flex; overflow-x: scroll; margin-left: 10px;">
+    <ng-container *ngFor="let article of news">
+      <ion-card style="border-radius: 15px; max-width: 300px; flex-shrink: 0;">
+        <ion-card-header>
+          <h1 style="font-size: 17px;">{{ article.author }}</h1>
+          <h3 style="font-size: 15px; height: 60px; color: #242424; white-space: normal;">{{ article.title }}</h3>
+        </ion-card-header>
+        <ion-card-content>
+          <h2 class="ion-text-end" style="margin-top: 15px;">Publicado em: {{ article.publishedAt | date:'dd/MM/yyyy' }}</h2>
+          <div class="ion-text-end ion-padding-top">
+            <ion-button style="--background: #1c7860; font-size: 15px;" [href]="article.url" target="_blank">Ver notícia</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <ion-grid style="background-color: #f3f1f1a1; padding-bottom: 80px;  margin-top: 30px;">
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <h3>
+          <a href="https://lojaverde.sporting.pt/pt/lookbook" target="_blank" style="text-decoration: none;">
+            LookBook
+          </a>
+        </h3>
+        <h3>
+          Perguntas Frequentes
+        </h3>
+        <h3>
+          Entregas </h3>
+        <h3>
+          Trocas e Devoluções </h3>
+        <h3>
+          Contactos </h3>
+
+        <h2 class="ion-text-center" style="font-size: 25px;">
+          <a href="https://www.facebook.com/SportingClubePortugal/?locale=pt_PT" target="_blank">
+            <ion-icon name="logo-facebook" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://twitter.com/Sporting_CP" target="_blank">
+            <ion-icon name="logo-twitter" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.youtube.com/@sportingcp" target="_blank">
+            <ion-icon name="logo-youtube" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.tiktok.com/@sporting_cp" target="_blank">
+            <ion-icon name="logo-tiktok" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.instagram.com/sportingclubedeportugal/" target="_blank">
+            <ion-icon name="logo-instagram" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+        </h2>
+        <div style="margin-left: 10px; border-top: 1px solid #ccc;">
+          <h3 class="ion-text-center" style="color: #585858;">© 2023 Sporting Clube de Portugal - Todos os direitos
+            reservados</h3>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>
