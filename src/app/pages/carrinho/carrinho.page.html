@@ -11,7 +11,7 @@
       <ion-button style="--background: #1c7860;">
         <ion-icon name="cart"></ion-icon>
       </ion-button>
-     
+
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -20,7 +20,45 @@
 <ion-content>
 
 
+  <ion-list>
+    <ion-item *ngFor="let produto of carrinho">
+      <ion-thumbnail slot="start">
+        <img src="data:image/jpeg;base64,{{ produto.img1 }}" class="product-image">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ produto.nome }}</h2>
+        <h3>{{ produto.descricao }}</h3>
+        <h2>Preço: {{ produto.preco | currency:'EUR' }}</h2>
+      </ion-label>
+      <ion-button fill="clear" color="primary" (click)="removerDoCarrinho(produto)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <h2 class="ion-text-center">Preço Total: {{ calcularPrecoTotal() | currency:'EUR' }}</h2>
+
+  <div class="button-container" style="margin: 50px">
+    <div class="centered-container">
+      <ion-button (click)="limparCarrinho()" class="button-left">
+        Limpar Carrinho
+      </ion-button>
+    </div>
+    <div class="centered-container">
+      <ion-button (click)="efetuarEncomenda()" class="button-right">
+        Efetuar Compra
+      </ion-button>
+    </div>
+  </div>
+
   
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab1" fill="clear" style="  --background: transparent;">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center ion-text-uppercase">
+      Comprar</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/carrinho" style="--background: #1c7860;">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+     
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+  
+
+  <div style="display: flex; justify-content: center; align-items: center;" class="ion-text-center ion-padding">
+    <ion-card class="ion-text-center" style="max-width: 500px; font-family: 'Poppins', sans-serif;">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row class="ion-align-items-center" style="margin-bottom: 20px;">
+            <ion-col size="12" class="ion-text-center">
+              <h2 class="input-label" style="margin-bottom: 10px;">Escolha o tipo de bilhete:</h2>
+              <ion-segment [(ngModel)]="ticketType" color="primary">
+                <ion-segment-button value="socio">
+                  <ion-label>Sócio</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="nao_socio">
+                  <ion-label>Não Sócio</ion-label>
+                </ion-segment-button>
+              </ion-segment>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row class="ion-align-items-center">
+            <ion-col size="12" class="ion-text-center">
+              <h2 class="input-label">Escolha o setor:</h2>
+              <ion-select [(ngModel)]="selectedSector" (ionChange)="onSectorChange()" interface="action-sheet"
+                class="input-with-shadow">
+                <ion-select-option *ngFor="let sector of sectors" [value]="sector">
+                  {{ sector }}
+                </ion-select-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row class="ion-align-items-center">
+            <ion-col size="12" class="ion-text-center">
+              <h2 class="input-label">Escolha o lugar:</h2>
+              <ion-select [(ngModel)]="selectedSeat" interface="action-sheet" class="input-with-shadow">
+                <ion-select-option *ngFor="let seat of seats" [value]="seat">
+                  {{ seat }}
+                </ion-select-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row *ngIf="ticketType === 'socio'" class="ion-align-items-center">
+            <ion-col size="12" class="ion-text-center">
+              <h2 class="input-label">Inserir número de sócio:</h2>
+              <ion-input type="number" [(ngModel)]="numeroSocio" class="input-with-shadow"></ion-input>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row>
+            <ion-col size="12" class="ion-text-center">
+              <ion-button (click)="comprarBilhete()">Comprar Bilhete</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+
+  
+  
+  
+  
+  
+
+
+  <ion-grid style="background-color: #f3f1f177;">
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <h3>
+          <a href="https://lojaverde.sporting.pt/pt/lookbook" target="_blank" style="text-decoration: none;">
+            LookBook
+          </a>
+        </h3>
+        <h3>
+          Perguntas Frequentes
+        </h3>
+        <h3>
+          Entregas </h3>
+        <h3>
+          Trocas e Devoluções </h3>
+        <h3>
+          Contactos </h3>
+
+        <h2 class="ion-text-center" style="font-size: 25px;">
+          <a href="https://www.facebook.com/SportingClubePortugal/?locale=pt_PT" target="_blank">
+            <ion-icon name="logo-facebook" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://twitter.com/Sporting_CP" target="_blank">
+            <ion-icon name="logo-twitter" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.youtube.com/@sportingcp" target="_blank">
+            <ion-icon name="logo-youtube" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.tiktok.com/@sporting_cp" target="_blank">
+            <ion-icon name="logo-tiktok" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+
+          <a href="https://www.instagram.com/sportingclubedeportugal/" target="_blank">
+            <ion-icon name="logo-instagram" style="margin-right: 15px; margin-left: 15px;  "></ion-icon>
+          </a>
+        </h2>
+        <div style="margin-left: 10px; border-top: 1px solid #ccc;">
+          <h3 class="ion-text-center" style="color: #585858;">© 2023 Sporting Clube de Portugal - Todos os direitos
+            reservados</h3>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

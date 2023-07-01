@@ -4,7 +4,7 @@
       <ion-menu-button menuToggle="menu"></ion-menu-button>
     </ion-buttons>
     <ion-title class="ion-text-center ion-text-uppercase">
-      Bilhetes & Gamebox</ion-title>
+      Bilhetes</ion-title>
     <ion-buttons slot="end">
       <ion-button routerLink="/carrinho" style="--background: transparent;">
         <ion-icon name="cart"></ion-icon>
@@ -47,7 +47,7 @@
         <h3 style="margin:10px; font-size: 15px;">{{ game.tournament.name }} - Jornada: {{ game.roundInfo.round }}</h3>
         <h2 style="margin:10px; font-size: 15px;">Data: {{ formatDate(game.startTimestamp)}}</h2>
         <div class="ion-text-end ion-padding">
-          <ion-button>Comprar Bilhete</ion-button>
+          <ion-button routerLink="/comprarbilhetes">Comprar Bilhete</ion-button>
         </div>
       </ion-card>
     </div>

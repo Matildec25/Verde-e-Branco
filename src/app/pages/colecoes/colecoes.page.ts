@@ -1,6 +1,6 @@
-
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-colecoes',
@@ -8,10 +8,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./colecoes.page.scss'],
 })
 export class ColecoesPage {
-
   produtos: any = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastController: ToastController) {}
 
   ionViewDidEnter() {
     this.carregarProdutos();
@@ -25,4 +24,20 @@ export class ColecoesPage {
     });
   }
 
+  async adicionarAoCarrinho(produto: any) {
+    let carrinho: any[] = [];
+    const carrinhoData = localStorage.getItem('carrinho');
+    if (carrinhoData) {
+      carrinho = JSON.parse(carrinhoData);
+    }
+    carrinho.push(produto);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    const toast = await this.toastController.create({
+      message: 'Produto adicionado ao carrinho.',
+      duration: 2000,
+      position: 'bottom',
+    });
+    toast.present();
+  }
 }

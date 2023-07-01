@@ -38,7 +38,7 @@
           <ion-card>
             <ion-card-header>
               <img src="data:image/jpeg;base64,{{ produto.img1 }}" />
-              <ion-button class="add-to-cart-button" shape="round">
+              <ion-button (click)="adicionarAoCarrinho(produto)" class="add-to-cart-button" shape="round">
                 <ion-icon name="cart"></ion-icon>
               </ion-button>
             </ion-card-header>

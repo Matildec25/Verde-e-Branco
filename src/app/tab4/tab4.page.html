@@ -9,7 +9,7 @@
       <ion-button routerLink="/carrinho" style="--background: #1c7860;">
         <ion-icon name="cart"></ion-icon>
       </ion-button>
-     
+
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -21,8 +21,9 @@
   <div class="buttons-container ion-padding">
     <div class="buttons-list">
       <ion-button routerLink="/tabs/tab2" flex="1">Bilhetes</ion-button>
-      <ion-button routerLink="/tabs/tab5" flex="1">Compras</ion-button>
-      <ion-button routerLink="/tabs/tab4" routerLinkActive="active" flex="1">Perfil</ion-button>
+      <ion-button routerLink="/tabs/tab5" flex="1">Loja</ion-button>
+      <ion-button routerLink="/login" style="--background: #1c7860;">Terminar Sessão</ion-button>
+
     </div>
   </div>
 
@@ -55,10 +56,17 @@
             <ion-card-title>NºSócio</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <h3>{{ utilizador.num_socio }}</h3>
+            <ng-container *ngIf="utilizador.num_socio">
+              <h3>{{ utilizador.num_socio }}</h3>
+            </ng-container>
+            <ng-container *ngIf="!utilizador.num_socio">
+              <p>Ainda não és sócio!</p>
+            </ng-container>
           </ion-card-content>
         </ion-card>
       </ion-col>
+
+
     </ion-row>
 
     <ion-row>
@@ -80,11 +88,11 @@
           </ion-card-header>
           <ion-card-content>
             <h3>{{ utilizador.quotas }}€</h3>
-            
+
           </ion-card-content>
         </ion-card>
       </ion-col>
-      
+
     </ion-row>
   </ion-grid>
 
@@ -92,10 +100,69 @@
   <div class="ion-text-center ion-padding" *ngIf="utilizador && utilizador.quotas > 0">
     <ion-button style="font-size: 15px;" (click)="abrirModal()">Pagar quotas em atraso</ion-button>
   </div>
+
+
+
+
+  <ion-card class="encomendas-card" style="margin-left: 30px; margin-right: 30px; margin-bottom: 50px;">
+    <ion-card-header>
+      <ion-card-title>Encomendas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ng-container *ngIf="encomendas.length > 0; else noEncomendas">
+        <ion-card *ngFor="let encomenda of encomendas" class="encomenda-card">
+          <ion-card-header>
+            <h2>Número da encomenda: {{ encomenda.id }}</h2>
+          </ion-card-header>
+          <ion-card-content>
+            <h3>
+              Preço Total: {{ encomenda.preco_total }}
+            </h3>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+      <ng-template #noEncomendas>
+        <p>Não há encomendas disponíveis.</p>
+      </ng-template>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card style="margin-left: 30px; margin-right: 30px;">
+    <ion-card-header>
+      <ion-card-title>Bilhetes</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ng-container *ngIf="bilhetes.length > 0; else noBilhetes">
+        <ion-card *ngFor="let bilhete of bilhetes" class="bilhete-card">
+          <ion-card-header>
+            <h2>Número do bilhete: {{ bilhete.id }}</h2>
+          </ion-card-header>
+          <ion-card-content>
+            <h3 style="margin-bottom: 10px;">Bancada: {{ bilhete.setor }}</h3>
+            <h3 style="margin-bottom: 10px;">Lugar: {{ bilhete.lugar }}</h3>
+            <h3 *ngIf="bilhete.num_socio !== '0'" style="margin-bottom: 10px;">Número de Sócio: {{ bilhete.num_socio }}</h3>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+      <ng-template #noBilhetes>
+        <p>Não há bilhetes disponíveis.</p>
+      </ng-template>
+    </ion-card-content>
+  </ion-card>
   
   
-  
-  <div class="ion-text-center">
+
+
+
+
+
+
+
+
+
+
+  <div class="ion-text-center" style="margin-top: 60px;">
     <h1 style="font-size: 20px;">Categorias de sócio</h1>
   </div>
 
@@ -162,6 +229,7 @@
       </ng-container>
     </div>
   </div>
+
 
 
 

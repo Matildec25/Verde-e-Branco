@@ -58,6 +58,12 @@ const routes: Routes = [
   },
 
 
+  {
+    path: 'comprarbilhetes',
+    loadChildren: () => import('./pages/comprarbilhetes/comprarbilhetes.module').then( m => m.ComprarbilhetesPageModule)
+  },
+
+
 
 
 

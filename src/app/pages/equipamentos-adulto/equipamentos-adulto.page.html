@@ -41,7 +41,7 @@
           <ion-card>
             <ion-card-header>
               <img src="data:image/jpeg;base64,{{ produto.img1 }}" />
-              <ion-button class="add-to-cart-button" shape="round">
+              <ion-button (click)="adicionarAoCarrinho(produto)" class="add-to-cart-button" shape="round">
                 <ion-icon name="cart"></ion-icon>
               </ion-button>
             </ion-card-header>
@@ -56,6 +56,8 @@
   </div>
 
 
+
+
   <h1 class="ion-text-uppercase ion-text-center" style="padding-top: 30px;">Treino</h1>
   <div class="products-container">
     <div class="products-list">
@@ -64,7 +66,7 @@
           <ion-card>
             <ion-card-header>
               <img src="data:image/jpeg;base64,{{ produto.img1 }}" />
-              <ion-button class="add-to-cart-button" shape="round">
+              <ion-button (click)="adicionarAoCarrinho(produto)" class="add-to-cart-button" shape="round">
                 <ion-icon name="cart"></ion-icon>
               </ion-button>
             </ion-card-header>
@@ -88,7 +90,7 @@
           <ion-card>
             <ion-card-header>
               <img src="data:image/jpeg;base64,{{ produto.img1 }}" />
-              <ion-button class="add-to-cart-button" shape="round">
+              <ion-button (click)="adicionarAoCarrinho(produto)" class="add-to-cart-button" shape="round">
                 <ion-icon name="cart"></ion-icon>
               </ion-button>
             </ion-card-header>
